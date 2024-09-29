@@ -1,0 +1,16 @@
+print("what is your first name?")
+first_name = input ()
+print(f"Hello, {first_name}")
+print("What is your last name?")  
+last_name = input ()
+name = first_name +" "+ last_name
+print ("Hello",name)
+current_year = input ("what year are we in?:")
+Birth_year = input ("what year were you born?:")
+age = int(current_year)-int(Birth_year)
+print ("Hello! " + name + " \nyou are" ,age)
+new_year = int(current_year)+(1)
+print (f"In year {new_year} you will be {age + 1}")
+print ("completed by, Joshua Harrison")
+
+
