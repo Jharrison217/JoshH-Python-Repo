@@ -1,0 +1,32 @@
+import random 
+def main():
+    print("Choose your weapon\n1 - Rock\n2 - Paper\n3 - scissors")
+ 
+def Rock_Paper_scissors():
+    print(f"Choose your weapon\n1 - Rock\n2 - Paper\n3 - scissors")
+    your_weapon = int(input("Choose your weapon : "))
+    my_weapon = random.randrange(1, 3, 1)
+    print(my_weapon)
+    if your_weapon == 1 and my_weapon == 2:
+        print("You lose! Paper covers rock!")
+    elif your_weapon == 2 and my_weapon == 1:
+        print("You win! Paper covers rock!")
+    elif your_weapon == my_weapon:
+        print ("Its a tie!")
+    elif your_weapon == 3 and my_weapon == 2:
+        print("You win! Scissors cut Paper!")
+    elif your_weapon == 2 and my_weapon == 3:
+        print("You lose! Scissors cut Paper!")
+    elif your_weapon == 1 and my_weapon == 3:
+        print("You win! Rock crushes Scissors!")
+Rock_Paper_scissors()
+while True:
+        play_again = input("Do you want to play again? (y/n): ").lower()
+        if play_again == 'y':
+            Rock_Paper_scissors()
+        elif play_again == "n":
+            print("Thank you for playing")
+            break
+print ("Completed by Joshua Harrison")
+
+
