@@ -1,0 +1,64 @@
+from random import choice
+
+def addGrades(grades):
+    print("Adding grades to the list")
+    while (current_grade := int(input("Please enter a grade or -1 to stop: "))) != -1:
+        grades.append(current_grade)
+    print(grades)
+
+def removeLowest(grades):
+    print("Removing lowest grade ")
+    smallest_index = grades.index(min(grades))
+    grades.pop(smallest_index)
+    print(grades)
+
+def editGrades(grades):
+    for index, grade in enumerate(grades, start=1):
+        print(f"{index}. {grade}")
+    while True:
+        edit = int(input(f"Which Grade do you want to edit: (enter a number between 1 and {len(grades)}) "))
+        if edit <= 0 or edit > len(grades):
+            print("Please enter a valid grade!")
+            edit = int(input(f"Which Grade would you like to edit: (enter a number between 1 and {len(grades)}) "))
+        grades[edit-1] = int(input("Enter the new grade "))
+        break
+        
+    
+
+def User_one(grades):
+    print("Sorting grades in numeric order")
+    grades.sort()
+    print (grades)
+    
+    print('Reversing order of grades')
+    grades.reverse()
+    print(grades)
+
+def total_avg(grades):
+    total_grade = sum(grades)
+    average_grade = sum(grades) / len(grades)
+    print("Getting grade total and average")
+    print(total_grade)
+    print(average_grade)
+    
+
+
+def main():
+    Grades = []
+    addGrades(Grades)
+    removeLowest(Grades)
+    print("Removing random grade")
+    Grades.remove(choice(Grades))
+    print(Grades)
+    editGrades(Grades)
+    print(Grades)
+    User_one(Grades)
+    print(Grades)
+    total_avg(Grades)
+    print("completed by Joshua Harrison")
+
+
+if __name__ == "__main__":
+    main()
+
+
