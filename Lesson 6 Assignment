@@ -1,0 +1,63 @@
+def getnames(student_info):
+    print("Obtaining student name list")
+    for student in student_info:
+        print(student)
+
+def getstudentinfo(student_info):
+    print("Accessing Student information using the key in a loop")
+
+    print("Name\t\tID\t\tGPA\t\tCredits Completed\t\tGrades")
+    for key, value in student_info.items():
+        print(f"{key}\t\t{value['id']}\t\t{value['gpa']}\t\t\t{value['credits_completed']}\t\t{value['grades']}")
+
+def removestudent(student_info):
+    print("Sarah has dropped out, removing from student info registry")
+    student_info.pop('Sarah')
+    print(student_info)
+
+def getstudentgpa(student_info):
+    print("Getting Jim's GPA")
+    getgpa = (student_info.get('Jim').get('gpa',))
+    print (getgpa)
+
+def graduate(student_info):
+    print("Students have graduated, Clearing the student registry")
+    student_info.clear()
+    print(student_info)
+
+def main():
+    Student_info = {}
+
+    Student_info['Jim'] = {
+        'id': 1,
+        'gpa': 3.1 ,
+        'credits_completed' : 97.0 ,
+        'grades': [80, 50, 100, 98]
+        }
+    Student_info['Sarah'] = {
+        'id': 2,
+        'gpa': 3.6,
+        'credits_completed': 40.0,
+        'grades': [80, 98]
+    }
+    print(Student_info)
+
+    getnames(Student_info)
+    getstudentinfo(Student_info)
+    removestudent(Student_info)
+    getstudentgpa(Student_info)
+    graduate(Student_info)
+    
+
+    
+
+if __name__ == "__main__":
+    main()
+
+print("completed by Joshua Harrison")
+
+
+
+
+
+
