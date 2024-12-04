@@ -1,0 +1,37 @@
+def main():
+    print("Welcome to the String Replacement Tool!")
+    mainString = get_input("Enter the string to search through: ")
+    searchString = get_input("Enter the string to search for: ")
+
+    index = find_index(mainString, searchString)
+    if index != -1:
+        print(replaceString(mainString, searchString))
+
+    print("Thanks for using our program! Completed by Joshua Harrison")
+
+def get_input(prompt):
+    return input(prompt)
+
+def find_index(mainString, searchString):
+    index = mainString.find(searchString)
+
+    if index != -1:
+        print(f"The string of '{searchString}' was found starting at index: {index}!")
+    else:
+        print(f"The string of '{searchString}' was not found")
+    return index
+
+def replaceString(mainString, searchString):
+    choice = input("Do you want to replace the string with something else (y/n): ").lower()
+    while choice != "y" and choice != "n":
+        choice = input("Invalid Input! Would you like to replace the string enter (y/n): ").lower()
+    
+    if choice == "n":
+        return "No replacement was made!"
+    
+    replacement = input("Enter the string you want to replace with: ")
+    return f"The new string is: {mainString.replace(searchString, replacement)}"
+
+if __name__ == "__main__" :
+    main()
+
