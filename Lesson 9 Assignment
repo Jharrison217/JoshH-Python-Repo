@@ -1,0 +1,54 @@
+Source Code:
+import locale
+
+def get_monthly_income():
+    while True:
+        try:
+            income = float(input("Enter your total income: "))
+            if income < 0:
+                raise ValueError("Invalid Input: Income cannot be negative..Please enter a valid income amount.")
+            return income
+        except ValueError as e :
+            print(f"The following error has occured; ",{e})
+        
+
+def get_expenses():
+    expenses = []
+    while True:
+        try:
+            expense = input("Enter an expense amount (or done to exit): ")
+            if expense.lower() == 'done':
+                break
+            expense = float(expense)
+            if expense < 0:
+                raise ValueError("Invalid Input: Expense cannot be negative..Please enter a valid expense amount or 0.")
+            expenses.append(expense)
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+        except ValueError as e:
+            print(f"The following error has occured; ",{e})
+    return expenses
+
+def main():
+    print("Welcome to the Simple Budget Tracker!")
+    
+    income = get_monthly_income()
+    expenses = get_expenses()
+    
+    total_expenses = sum(expenses)
+    remaining_budget = income - total_expenses
+    
+    locale.setlocale(locale.LC_ALL, 'en_US')
+    
+    print(f"\nTotal Income: {locale.currency(income, grouping=True)}")
+    print(f"Total Expenses: {locale.currency(total_expenses, grouping=True)}")
+    print(f"Remaining Budget: {locale.currency(remaining_budget, grouping=True)}\n")
+    
+    print("Complete Expense List:")
+    for i, expense in enumerate(expenses, 1):
+        print(f"{i}. {locale.currency(expense, grouping=True)}")
+    
+    print("Completed by, Joshua Harrison")
+
+if __name__ == "__main__":
+    main()
